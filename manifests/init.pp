@@ -25,8 +25,8 @@ class vnstat (
   
   ) inherits vnstat::params {
 
-    validate_bool($use_vnstatd)
     validate_bool($use_vnstati)
+    validate_bool($use_vnstatd)
     validate_string($package_ensure)
     validate_string($package_name)
     validate_array($interfaces)
@@ -47,7 +47,8 @@ class vnstat (
     
     anchor { 'vnstat::begin': } ->
     class { '::vnstat::install': } ->
-    class { '::vnstat::config': } ~>
+    class { '::vnstat::vnstatd': } ->
+    class { '::vnstat::config': } ->
     anchor { 'vnstat::end': }
 
 }

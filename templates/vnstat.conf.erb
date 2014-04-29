@@ -1,6 +1,8 @@
 # vnstat.conf: Managed by puppet.
 #
 
+# default interface
+Interface "<%= @interfaces.first %>"
 
 # location of the database directory
  # location of the database directory
@@ -51,6 +53,11 @@ RateUnit 0
 # (unless interface specific limit is given)
 MaxBandwidth <%= @max_bandwidth %>
 
+ # interface specific limits
+<% @interfaces_max_bandwidth.each do |int,bw| -%>
+MaxBW<%= int %>  <%= bw %>
+<% end -%>
+
 # how many seconds should sampling for -tr take by default
 Sampletime <%= @sample_time %>
 
@@ -75,32 +82,40 @@ TrafficlessDays 1
 TrafficlessDays 0
 <% end -%>
 
-<% if @use_vnstatd -%>
- # vnstatd
- ##
- 
- # how often (in seconds) interface data is updated
- UpdateInterval 30
- 
- # how often (in seconds) interface status changes are checked
- PollInterval 5
- 
- # how often (in minutes) data is saved to file
- SaveInterval 5
- 
- # how often (in minutes) data is saved when all interface are offline
- OfflineSaveInterval 30
- 
- # force data save when interface status changes (1 = enabled, 0 = disabled)
- SaveOnStatusChange 1
- 
- # enable / disable logging (0 = disabled, 1 = logfile, 2 = syslog)
- UseLogging 2
- 
- # file used for logging if UseLogging is set to 1
- LogFile "/var/log/vnstat.log"
- 
- # file used as daemon pid / lock file
- PidFile "/run/vnstat/vnstat.pid"
+# vnstatd
+##
 
- <% end -%>
+# how often (in seconds) interface data is updated
+UpdateInterval <%= scope['vnstat::vnstatd::update_interval'] %>
+
+# how often (in seconds) interface status changes are checked
+PollInterval <%= scope['vnstat::vnstatd::poll_interval'] %>
+
+# how often (in minutes) data is saved to file
+SaveInterval <%= scope['vnstat::vnstatd::save_interval'] %>
+
+# how often (in minutes) data is saved when all interface are offline
+OfflineSaveInterval <%= scope['vnstat::vnstatd::offline_save_interval'] %>
+
+# force data save when interface status changes (1 = enabled, 0 = disabled)
+<% if scope['vnstat::vnstatd::saveonstatuschange'] -%>
+SaveOnStatusChange 1
+<% else -%>
+SaveOnStatusChange 0
+<% end -%>
+
+# enable / disable logging (0 = disabled, 1 = logfile, 2 = syslog)
+<% if scope['vnstat::vnstatd::logging_target'] == 'syslog' -%>
+UseLogging 2
+<% end -%>
+<% if scope['vnstat::vnstatd::logging_target'] == 'logfile' -%>
+UseLogging 1
+LogFile "<%= scope['vnstat::vnstatd::log_file'] %>"
+<% end -%>
+<% if scope['vnstat::vnstatd::logging_target'] == 'none' -%>
+UseLogging 0
+<% end -%>
+
+# file used as daemon pid / lock file
+PidFile "<%= scope['vnstat::vnstatd::pid_file'] %>"
+

@@ -10,8 +10,8 @@ This Puppet module installs, configures and manages vnstat.
 
 * vnstat package.
 * vnstat configuration file.
-* vnstatd service and configuration (optional).
-* vnstati program and configuration (optional).
+* vnstatd service and configuration.
+* vnstati program and configuration.
 
 ##Usage
 

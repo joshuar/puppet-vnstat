@@ -16,6 +16,7 @@ class vnstat::params {
   $rate_unit = 'bits'
   $output_style = 3
   $max_bandwidth = 0
+  $interfaces_max_bandwidth = []
   $sample_time = 5
   $boot_variation = 15
   $log_notraffic_days = true
