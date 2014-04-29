@@ -32,7 +32,7 @@ class vnstat (
     validate_array($interfaces)
     validate_absolute_path($database_directory)
     validate_absolute_path($config)
-    validate_sting($config_template)
+    validate_string($config_template)
     validate_re($month_rotate, ['^\d+$', ''])
     validate_re($day_format, ['^%.+$', ''])
     validate_re($month_format, ['^%.+$', ''])
