@@ -1,4 +1,4 @@
-class vnstat::vnstati::params inherits vnstat {
+class vnstat::vnstati::params inherits vnstat::params {
 
   $header_format = '%x %H:%M'
   $show_hourly_rate = true

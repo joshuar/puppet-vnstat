@@ -1,4 +1,4 @@
-class vnstat::vnstatd::params inherits vnstat {
+class vnstat::vnstatd::params inherits vnstat::params {
 
   $update_interval = 30
   $poll_interval = 5
