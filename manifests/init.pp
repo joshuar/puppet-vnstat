@@ -47,9 +47,10 @@ class vnstat (
     
     anchor { 'vnstat::begin': } ->
     class { '::vnstat::install': } ->
+    class { '::vnstat::config': } ~>
     class { '::vnstat::vnstatd': } ->
-    class { '::vnstat::vnstati': } ->
-    class { '::vnstat::config': } ->
     anchor { 'vnstat::end': }
+
+    include vnstat::vnstati
 
 }
