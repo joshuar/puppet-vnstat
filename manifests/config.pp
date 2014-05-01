@@ -7,7 +7,6 @@ class vnstat::config inherits vnstat {
     group   => 'vnstat',
     mode    => '0644',
     content => template($config_template),
-    notify  => Service['vnstat'],
   }
 
   # vnstat requires the database to be "initialised"

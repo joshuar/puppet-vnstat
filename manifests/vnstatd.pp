@@ -30,6 +30,7 @@ class vnstat::vnstatd (
       name       => $service_name,
       hasstatus  => true,
       hasrestart => true,
+      subscribe  => File[$vnstat::config],
     }
 
   }
