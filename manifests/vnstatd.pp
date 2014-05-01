@@ -9,7 +9,7 @@ class vnstat::vnstatd (
   $offline_save_interval = $vnstat::vnstatd::params::offline_save_interval,
   $saveonstatuschange = $vnstat::vnstatd::params::saveonstatuschange,
   $logging_target = $vnstat::vnstatd::params::logging_target,
-  
+
   ) inherits vnstat::vnstatd::params {
 
     validate_bool($service_enable)
@@ -23,7 +23,7 @@ class vnstat::vnstatd (
     if ! ($service_ensure in [ 'running', 'stopped' ]) {
       fail('service_ensure parameter must be running or stopped')
     }
-    
+
     service { 'vnstat':
       ensure     => $service_ensure,
       enable     => $service_enable,
@@ -31,5 +31,5 @@ class vnstat::vnstatd (
       hasstatus  => true,
       hasrestart => true,
     }
-    
+
   }

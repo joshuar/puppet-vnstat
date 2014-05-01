@@ -119,3 +119,50 @@ UseLogging 0
 # file used as daemon pid / lock file
 PidFile "<%= scope['vnstat::vnstatd::pid_file'] %>"
 
+# vnstati
+##
+
+# title timestamp format
+HeaderFormat "<%= scope['vnstat::vnstati::header_format'] %>"
+
+# show hours with rate (1 = enabled, 0 = disabled)
+<% if scope['vnstat::vnstati::show_hourly_rate'] -%>
+HourlyRate 1
+<% else -%>
+HourlyRate 0
+<% end -%>
+
+# show rate in summary (1 = enabled, 0 = disabled)
+<% if scope['vnstat::vnstati::show_rate_in_summary'] -%>
+SummaryRate 1
+<% else -%>
+SummaryRate 0
+<% end -%>
+
+# layout of summary (1 = with monthly, 0 = without monthly)
+<% if scope['vnstat::vnstati::summary_layout'] == 'new' -%>
+SummaryLayout 1
+<% else -%>
+SummaryLayout 0
+<% end -%>
+
+# transparent background (1 = enabled, 0 = disabled)
+<% if scope['vnstat::vnstati::transparent_bg'] -%>
+TransparentBg 1
+<% else -%>
+TransparentBg 0
+<% end -%>
+
+# image colors
+CBackground "<%= scope['vnstat::vnstati::image_cbackground'] %>"
+CEdge "<%= scope['vnstat::vnstati::image_cedge'] %>"
+CHeader "<%= scope['vnstat::vnstati::image_cheader'] %>"
+CHeaderTitle "<%= scope['vnstat::vnstati::image_cheadertitle'] %>"
+CHeaderDate "<%= scope['vnstat::vnstati::image_cheaderdate'] %>"
+CText "<%= scope['vnstat::vnstati::image_ctext'] %>"
+CLine "<%= scope['vnstat::vnstati::image_cline'] %>"
+CLineL "<%= scope['vnstat::vnstati::image_clinel'] %>"
+CRx "<%= scope['vnstat::vnstati::image_crx'] %>"
+CTx "<%= scope['vnstat::vnstati::image_ctx'] %>"
+CRxD "<%= scope['vnstat::vnstati::image_crxd'] %>"
+CTxD "<%= scope['vnstat::vnstati::image_ctxd'] %>"

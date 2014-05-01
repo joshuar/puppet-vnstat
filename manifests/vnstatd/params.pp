@@ -5,7 +5,7 @@ class vnstat::vnstatd::params inherits vnstat {
   $save_interval = 5
   $offline_save_interval = 30
   $saveonstatuschange = true
-  $logging_target = 'syslog'
+  $logging_target = 'none'
 
   if $vnstat::use_vnstatd {
     $service_enable = true
