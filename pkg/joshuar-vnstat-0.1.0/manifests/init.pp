@@ -44,14 +44,13 @@ class vnstat (
     validate_bool($iec_units)
     validate_re($rate_unit, [ '^bits', '^bytes' ])
     validate_bool($log_notraffic_days)
-
-    contain vnstat::vnstatd
-    contain vnstat::vnstati
     
     anchor { 'vnstat::begin': } ->
     class { '::vnstat::install': } ->
-    class { '::vnstat::config': } ->
+    class { '::vnstat::config': } ~>
+    class { '::vnstat::vnstatd': } ->
     anchor { 'vnstat::end': }
 
+    include vnstat::vnstati
 
 }

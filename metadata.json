@@ -1,0 +1,67 @@
+{
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "6"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "6"
+      ]
+    },
+    {
+      "operatingsystem": "Fedora",
+      "operatingsystemrelease": [
+        "20"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "12.04",
+        "13.10",
+        "14.04"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": "3.x"
+    }
+  ],
+  "name": "joshuar-vnstat",
+  "version": "0.2.0",
+  "source": "git://github.com/joshuar/puppet-vnstat",
+  "author": "Joshua Rich",
+  "license": "Apache Version 2.0",
+  "summary": "vnstat module",
+  "description": "vnstat module for Debian and RedHat based Linux distributions.",
+  "project_page": "http://github.com/joshuar/puppet-vnstat",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">=0.1.6"
+    }
+  ],
+  "types": [
+
+  ],
+  "checksums": {
+    "Modulefile": "e341a041ecada8e2cf8d157dfb802062",
+    "README.markdown": "d626886c21103970b33db781dc37468e",
+    "manifests/config.pp": "8d1cf013536b990e605734f316d679b4",
+    "manifests/createdb.pp": "50b2c6c6f7b64c64074a7e8b9989257b",
+    "manifests/init.pp": "2993c7f911ad44dde847ca4c2f404029",
+    "manifests/install.pp": "a54ad03d074e81ee8377783b337876f1",
+    "manifests/params.pp": "4cb90e21be444a07b8a30eaeecda3f4b",
+    "manifests/vnstatd/params.pp": "86d2b1d19743ee81a730551b4b4ba892",
+    "manifests/vnstatd.pp": "f3b4c89d00447459834a423013115011",
+    "manifests/vnstati/params.pp": "a1d53a9c14320876e7a9fe8aefd08916",
+    "manifests/vnstati.pp": "84b7c4b5f2f3431a5bf9b5bda0be4877",
+    "templates/vnstat.conf.erb": "bc270ba2490e4484f6f6ca1ab83db7fc"
+  }
+}

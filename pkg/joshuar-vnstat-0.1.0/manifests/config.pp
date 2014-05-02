@@ -1,5 +1,5 @@
 class vnstat::config inherits vnstat {
-  
+
   # The vnstat configuration file.
   file { $config:
     ensure  => file,
