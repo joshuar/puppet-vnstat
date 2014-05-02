@@ -51,11 +51,11 @@
 
   ],
   "checksums": {
-    "Modulefile": "e341a041ecada8e2cf8d157dfb802062",
-    "README.markdown": "d626886c21103970b33db781dc37468e",
-    "manifests/config.pp": "8d1cf013536b990e605734f316d679b4",
+    "Modulefile": "f7e3916a1159a752c0b5022a888444ab",
+    "README.markdown": "40318807d51c7d5b49560191e4842591",
+    "manifests/config.pp": "1e22af93c7f0664cdbe4f37fa95cb24c",
     "manifests/createdb.pp": "50b2c6c6f7b64c64074a7e8b9989257b",
-    "manifests/init.pp": "2993c7f911ad44dde847ca4c2f404029",
+    "manifests/init.pp": "143883ae2a481b2786b2c456a68443a5",
     "manifests/install.pp": "a54ad03d074e81ee8377783b337876f1",
     "manifests/params.pp": "4cb90e21be444a07b8a30eaeecda3f4b",
     "manifests/vnstatd/params.pp": "86d2b1d19743ee81a730551b4b4ba892",
