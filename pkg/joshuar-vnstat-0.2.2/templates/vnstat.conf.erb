@@ -1,0 +1,168 @@
+# vnstat.conf: Managed by puppet.
+#
+
+# default interface
+Interface "<%= @interfaces.first %>"
+
+# location of the database directory
+ # location of the database directory
+DatabaseDir "<%= @database_directory %>"
+
+# locale (LC_ALL) ("-" = use system locale)
+Locale "-"
+
+# on which day should months change
+MonthRotate <%= @month_rotate %>
+
+# date output formats for -d, -m, -t and -w
+ # see 'man date' for control codes
+DayFormat    "<%= @day_format %>"
+MonthFormat  "<%= @month_format %>"
+TopFormat    "<%= @top_format %>"
+
+# characters used for visuals
+RXCharacter       "<%= @rx_char %>"
+TXCharacter       "<%= @tx_char %>"
+RXHourCharacter   "<%= @rx_hour_char %>"
+TXHourCharacter   "<%= @tx_hour_char %>"
+
+# how units are prefixed when traffic is shown
+# 0 = IEC standard prefixes (KiB/MiB/GiB/TiB)
+# 1 = old style binary prefixes (KB/MB/GB/TB)
+<% if @iec_units -%>
+UnitMode 0
+<% else -%>
+UnitMode 1
+<% end -%>
+
+# output style
+# 0 = minimal & narrow, 1 = bar column visible
+# 2 = same as 1 except rate in summary and weekly
+# 3 = rate column visible
+OutputStyle <%= @output_style %>
+
+# used rate unit (0 = bytes, 1 = bits)
+<% if @rate_unit == 'bits' -%>
+RateUnit 1
+<% end -%>
+<% if @rate_unit == 'bytes' -%>
+RateUnit 0
+<% end -%>
+
+# maximum bandwidth (Mbit) for all interfaces, 0 = disable feature
+# (unless interface specific limit is given)
+MaxBandwidth <%= @max_bandwidth %>
+
+ # interface specific limits
+<% @interfaces_max_bandwidth.each do |int,bw| -%>
+MaxBW<%= int %>  <%= bw %>
+<% end -%>
+
+# how many seconds should sampling for -tr take by default
+Sampletime <%= @sample_time %>
+
+# default query mode
+# 0 = normal, 1 = days, 2 = months, 3 = top10
+# 4 = dumpdb, 5 = short, 6 = weeks, 7 = hours
+QueryMode 0
+
+# filesystem disk space check (1 = enabled, 0 = disabled)
+CheckDiskSpace 1
+
+# database file locking (1 = enabled, 0 = disabled)
+UseFileLocking 1
+
+# how much the boot time can variate between updates (seconds)
+BootVariation <%= @boot_variation %>
+
+# log days without traffic to daily list (1 = enabled, 0 = disabled)
+<% if @log_notraffic_days -%>
+TrafficlessDays 1
+<% else -%>
+TrafficlessDays 0
+<% end -%>
+
+# vnstatd
+##
+
+# how often (in seconds) interface data is updated
+UpdateInterval <%= scope['vnstat::vnstatd::update_interval'] %>
+
+# how often (in seconds) interface status changes are checked
+PollInterval <%= scope['vnstat::vnstatd::poll_interval'] %>
+
+# how often (in minutes) data is saved to file
+SaveInterval <%= scope['vnstat::vnstatd::save_interval'] %>
+
+# how often (in minutes) data is saved when all interface are offline
+OfflineSaveInterval <%= scope['vnstat::vnstatd::offline_save_interval'] %>
+
+# force data save when interface status changes (1 = enabled, 0 = disabled)
+<% if scope['vnstat::vnstatd::saveonstatuschange'] -%>
+SaveOnStatusChange 1
+<% else -%>
+SaveOnStatusChange 0
+<% end -%>
+
+# enable / disable logging (0 = disabled, 1 = logfile, 2 = syslog)
+<% if scope['vnstat::vnstatd::logging_target'] == 'syslog' -%>
+UseLogging 2
+<% end -%>
+<% if scope['vnstat::vnstatd::logging_target'] == 'logfile' -%>
+UseLogging 1
+LogFile "<%= scope['vnstat::vnstatd::log_file'] %>"
+<% end -%>
+<% if scope['vnstat::vnstatd::logging_target'] == 'none' -%>
+UseLogging 0
+<% end -%>
+
+# file used as daemon pid / lock file
+PidFile "<%= scope['vnstat::vnstatd::pid_file'] %>"
+
+# vnstati
+##
+
+# title timestamp format
+HeaderFormat "<%= scope['vnstat::vnstati::header_format'] %>"
+
+# show hours with rate (1 = enabled, 0 = disabled)
+<% if scope['vnstat::vnstati::show_hourly_rate'] -%>
+HourlyRate 1
+<% else -%>
+HourlyRate 0
+<% end -%>
+
+# show rate in summary (1 = enabled, 0 = disabled)
+<% if scope['vnstat::vnstati::show_rate_in_summary'] -%>
+SummaryRate 1
+<% else -%>
+SummaryRate 0
+<% end -%>
+
+# layout of summary (1 = with monthly, 0 = without monthly)
+<% if scope['vnstat::vnstati::summary_layout'] == 'new' -%>
+SummaryLayout 1
+<% else -%>
+SummaryLayout 0
+<% end -%>
+
+# transparent background (1 = enabled, 0 = disabled)
+<% if scope['vnstat::vnstati::transparent_bg'] -%>
+TransparentBg 1
+<% else -%>
+TransparentBg 0
+<% end -%>
+
+# image colors
+CBackground "<%= scope['vnstat::vnstati::image_cbackground'] %>"
+CEdge "<%= scope['vnstat::vnstati::image_cedge'] %>"
+CHeader "<%= scope['vnstat::vnstati::image_cheader'] %>"
+CHeaderTitle "<%= scope['vnstat::vnstati::image_cheadertitle'] %>"
+CHeaderDate "<%= scope['vnstat::vnstati::image_cheaderdate'] %>"
+CText "<%= scope['vnstat::vnstati::image_ctext'] %>"
+CLine "<%= scope['vnstat::vnstati::image_cline'] %>"
+CLineL "<%= scope['vnstat::vnstati::image_clinel'] %>"
+CRx "<%= scope['vnstat::vnstati::image_crx'] %>"
+CTx "<%= scope['vnstat::vnstati::image_ctx'] %>"
+CRxD "<%= scope['vnstat::vnstati::image_crxd'] %>"
+CTxD "<%= scope['vnstat::vnstati::image_ctxd'] %>"
