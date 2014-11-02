@@ -164,7 +164,7 @@ This module has been tested on Puppet 3.5.0 but should work on:
 
 * Puppet 3.x and higher.
 
-The module has been tested on Ubuntu 13.10 but should work on the
+The module has been tested on Ubuntu 13.10 And Fedora 20 but should work on the
 latest stable releases of:
 
 * Ubuntu
