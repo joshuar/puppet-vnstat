@@ -19,7 +19,7 @@ class vnstat::vnstatd::params inherits vnstat::params {
     'RedHat': {
       $service_name = 'vnstat'
       $log_file = '/var/log/vnstat.log'
-      $pid_file = '/run/vnstat/vnstat.pid'
+      $pid_file = '/var/run/vnstat.pid'
     }
     'Debian': {
       $service_name = 'vnstat'
