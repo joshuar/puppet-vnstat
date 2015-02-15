@@ -27,11 +27,19 @@ class vnstat::params {
       $config = '/etc/vnstat.conf'
       $package_name   = 'vnstat'
       $database_directory = '/var/lib/vnstat'
+      $group = 'vnstat'
     }
     'Debian': {
       $config = '/etc/vnstat.conf'
       $package_name   = 'vnstat'
       $database_directory = '/var/lib/vnstat'
+      $group = 'vnstat'
+    }
+    'OpenBSD': {
+      $config = '/etc/vnstat.conf'
+      $package_name = 'vnstat'
+      $database_directory = '/var/db/vnstat'
+      $group = 'wheel'
     }
     default: {
       fail("The ${module_name} module is not supported on an ${::operatingsystem} distribution.")

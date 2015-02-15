@@ -4,7 +4,7 @@ class vnstat::config inherits vnstat {
   file { $config:
     ensure  => file,
     owner   => 0,
-    group   => 'vnstat',
+    group   => $group,
     mode    => '0644',
     content => template($config_template),
   }

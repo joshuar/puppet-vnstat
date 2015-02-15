@@ -31,6 +31,9 @@ class vnstat::vnstati::params inherits vnstat::params {
     'Debian': {
       $package_name = 'vnstati'
     }
+    'OpenBSD': {
+      $package_name = undef
+    }
     default: {
       fail("The ${module_name} module is not supported on an ${::operatingsystem} distribution.")
     }
