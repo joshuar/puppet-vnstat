@@ -26,6 +26,11 @@ class vnstat::vnstatd::params inherits vnstat::params {
       $log_file = '/var/log/vnstat.log'
       $pid_file = '/run/vnstat/vnstat.pid'
     }
+    'OpenBSD': {
+      $service_name = 'vnstatd'
+      $log_file = '/var/log/vnstat/vnstat.log'
+      $pid_file = '/var/run/vnstat/vnstat.pid'
+    }
     default: {
       fail("The ${module_name} module is not supported on an ${::operatingsystem} distribution.")
     }
