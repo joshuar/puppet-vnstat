@@ -1,0 +1,15 @@
+{
+  "LICENSE": "d2794c0df5b907fdace235a619d80314",
+  "README.md": "00453d35d30fc2314f08dc3e0b19405a",
+  "manifests/config.pp": "1e22af93c7f0664cdbe4f37fa95cb24c",
+  "manifests/createdb.pp": "50b2c6c6f7b64c64074a7e8b9989257b",
+  "manifests/init.pp": "143883ae2a481b2786b2c456a68443a5",
+  "manifests/install.pp": "a54ad03d074e81ee8377783b337876f1",
+  "manifests/params.pp": "4cb90e21be444a07b8a30eaeecda3f4b",
+  "manifests/vnstatd/params.pp": "cf04c827588a744c9b67c666087fa39c",
+  "manifests/vnstatd.pp": "f3b4c89d00447459834a423013115011",
+  "manifests/vnstati/params.pp": "a1d53a9c14320876e7a9fe8aefd08916",
+  "manifests/vnstati.pp": "84b7c4b5f2f3431a5bf9b5bda0be4877",
+  "metadata.json": "4e32c531efbf7b81d33a671055d24fee",
+  "templates/vnstat.conf.erb": "bc270ba2490e4484f6f6ca1ab83db7fc"
+}
