@@ -27,18 +27,21 @@ class vnstat::params {
       $config = '/etc/vnstat.conf'
       $package_name   = 'vnstat'
       $database_directory = '/var/lib/vnstat'
+      $user = 'vnstat'
       $group = 'vnstat'
     }
     'Debian': {
       $config = '/etc/vnstat.conf'
       $package_name   = 'vnstat'
       $database_directory = '/var/lib/vnstat'
+      $user = 'vnstat'
       $group = 'vnstat'
     }
     'OpenBSD': {
       $config = '/etc/vnstat.conf'
       $package_name = 'vnstat'
       $database_directory = '/var/db/vnstat'
+      $user = '_vnstat'
       $group = 'wheel'
     }
     default: {

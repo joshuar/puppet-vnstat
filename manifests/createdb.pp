@@ -1,4 +1,7 @@
-define vnstat::createdb ($label = undef) {
+define vnstat::createdb (
+  $user,
+  $label = undef,
+) {
 
   $args = '-u -i'
   if $label {
@@ -8,6 +11,7 @@ define vnstat::createdb ($label = undef) {
   exec { "create-vnstat-db-${name}":
     command => "vnstat ${args} ${name}",
     creates => "${vnstat::database_directory}/${name}",
+    user    => $user,
     require => Package['vnstat'],
   }
 
