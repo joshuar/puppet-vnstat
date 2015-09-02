@@ -22,6 +22,7 @@ class vnstat (
   $sample_time        = $vnstat::params::sample_time,
   $boot_variation     = $vnstat::params::boot_variation,
   $log_notraffic_days = $vnstat::params::log_notraffic_days,
+  $user               = $vnstat::params::user,
   
   ) inherits vnstat::params {
 
@@ -44,6 +45,7 @@ class vnstat (
     validate_bool($iec_units)
     validate_re($rate_unit, [ '^bits', '^bytes' ])
     validate_bool($log_notraffic_days)
+    validate_string($user)
 
     contain vnstat::vnstatd
     contain vnstat::vnstati
