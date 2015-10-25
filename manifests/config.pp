@@ -13,7 +13,7 @@ class vnstat::config inherits vnstat {
   # before running.  This is done by performing a
   # one-off database update for all interfaces to be
   # monitored.
-  createdb { $interfaces:
+  vnstat::createdb { $interfaces:
     user => $::vnstat::user,
   }
 }
