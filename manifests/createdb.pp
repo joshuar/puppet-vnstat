@@ -3,9 +3,11 @@ define vnstat::createdb (
   $label = undef,
 ) {
 
-  $args = '-u -i'
   if $label {
     $args = "-u -i --nick ${label}"
+  }
+  else {
+    $args = '-u -i'
   }
 
   exec { "create-vnstat-db-${name}":
