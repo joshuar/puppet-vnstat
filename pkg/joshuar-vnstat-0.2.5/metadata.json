@@ -1,6 +1,6 @@
 {
   "name": "joshuar-vnstat",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "author": "Joshua Rich",
   "summary": "A module for vnstat",
   "license": "Licensed under (Apache 2.0)",

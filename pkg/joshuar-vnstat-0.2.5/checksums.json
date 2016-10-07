@@ -10,6 +10,6 @@
   "manifests/vnstatd.pp": "f3b4c89d00447459834a423013115011",
   "manifests/vnstati/params.pp": "680bce295731fa6bcffa1301c8a9e02c",
   "manifests/vnstati.pp": "84b7c4b5f2f3431a5bf9b5bda0be4877",
-  "metadata.json": "6142b19f923861d759a2207ab1e3c6f3",
+  "metadata.json": "143574b7c392802bd61e2b9458e71e01",
   "templates/vnstat.conf.erb": "dab9bca1b4b617c31be71b5eb170f729"
 }
