@@ -1,10 +1,14 @@
-#vnstat
+# ⛔️ UNMAINTAINED
 
-##Overview
+Using this and interested in maintaining it?  Contact me and I can move ownership of the repo over to you.
+
+# vnstat
+
+## Overview
 
 This Puppet module installs, configures and manages vnstat.
 
-##Setup
+## Setup
 
 ### What vnstat affects
 
@@ -13,7 +17,7 @@ This Puppet module installs, configures and manages vnstat.
 * vnstatd service and configuration.
 * vnstati program and configuration.
 
-##Usage
+## Usage
 
 Install and configure vnstat, vnstatd and vnstati for interfaces
 specified:
@@ -43,7 +47,7 @@ class { '::vnstat':
     },
 }
 ```
-##Reference
+## Reference
 
 ### Classes ###
 
@@ -156,9 +160,9 @@ pages **vnstat(1)**, **vnstati(1)**, **vnstatd(1)** and
 * `image_ctxd` : darker version of transmitted data color. Set to '-'
   in order to use a calculated  value based on CTx.
 
-##Limitations
+## Limitations
 
-###Compatibility
+### Compatibility
 
 This module has been tested on Puppet 3.5.0 but should work on:
 
@@ -173,6 +177,6 @@ latest stable releases of:
 * RedHat
 * OpenBSD
 
-###Cron
+### Cron
 
 * There is no support for configuring a cron job to run vnstat.
